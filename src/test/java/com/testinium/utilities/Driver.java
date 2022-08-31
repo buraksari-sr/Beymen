@@ -15,21 +15,24 @@ public class Driver {
 
     public static WebDriver getDriver() {
 
-        String browserType = ConfigurationReader.getProperty("browser");
+        if(driver==null) {
 
-        switch (browserType) {
-            case "chrome":
-                WebDriverManager.chromedriver().setup();
-                driver = new ChromeDriver();
-                driver.manage().window().maximize();
-                driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-                break;
-            case "firefox":
-                WebDriverManager.firefoxdriver().setup();
-                driver=new FirefoxDriver();
-                driver.manage().window().maximize();
-                driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-                break;
+            String browserType = ConfigurationReader.getProperty("browser");
+
+            switch (browserType) {
+                case "chrome":
+                    WebDriverManager.chromedriver().setup();
+                    driver = new ChromeDriver();
+                    driver.manage().window().maximize();
+                    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+                    break;
+                case "firefox":
+                    WebDriverManager.firefoxdriver().setup();
+                    driver = new FirefoxDriver();
+                    driver.manage().window().maximize();
+                    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+                    break;
+            }
         }
         return driver;
     }

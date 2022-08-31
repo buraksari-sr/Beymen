@@ -6,7 +6,7 @@ public class WriteToText {
 
     static String projectPath = System.getProperty("user.dir");
 
-    static public String textFilePath = projectPath + "\\deneme";
+    static public String textFilePath = projectPath + "\\ProductInfo";
 
     private String readFromFile(String path) throws IOException {
         WriteToText.textFilePath = path;
@@ -20,14 +20,14 @@ public class WriteToText {
     public static void writeToFile(String str)  {
         FileWriter writer = null;
         try {
-            writer = new FileWriter(textFilePath, false);
+            writer = new FileWriter(textFilePath, true);
         } catch (IOException e) {
             e.printStackTrace();
         }
         BufferedWriter bufferedWriter = new BufferedWriter(writer);
 
         try {
-            bufferedWriter.write(str);
+            bufferedWriter.write(str+" ");
         } catch (IOException e) {
             e.printStackTrace();
         }
