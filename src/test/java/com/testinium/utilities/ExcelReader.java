@@ -1,7 +1,6 @@
 package com.testinium.utilities;
 
 import org.apache.poi.ss.usermodel.*;
-
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -18,7 +17,7 @@ public class ExcelReader {
 
     public static String getCell(int row,int column )  {
         try {
-            fileInputStream = new FileInputStream("./testData.xlsx");
+            fileInputStream = new FileInputStream("Beymen.xlsx");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -27,7 +26,7 @@ public class ExcelReader {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        sheet = workbook.getSheet("Sheet");
+        sheet = workbook.getSheet("searching_word");
         return sheet.getRow(row).getCell(column).getStringCellValue();
     }
 
