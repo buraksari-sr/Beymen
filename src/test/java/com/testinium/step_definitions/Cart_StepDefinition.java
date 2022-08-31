@@ -2,6 +2,7 @@ package com.testinium.step_definitions;
 
 import com.testinium.page.CartPage;
 import com.testinium.page.ItemPage;
+import com.testinium.utilities.Driver;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
 
@@ -38,6 +39,7 @@ public class Cart_StepDefinition {
         String actualMessage =cartPage.getDeletedMessage();
         String expectedMessage ="SEPETINIZDE ÜRÜN BULUNMAMAKTADIR";
         Assert.assertEquals(expectedMessage,actualMessage);
+        Driver.closeDriver();
     }
 
 }
